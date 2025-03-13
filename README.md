@@ -6,5 +6,5 @@ Welcome to **FlauntX**, an elegantly designed e-commerce platform offering a sea
 ## 📌 Features  
 ### ✅ **User-Friendly UI**  
 - Modern and visually appealing design with smooth animations.  
-- Organized sections: **Men, Women, Kids
+- Organized sections: Men, Women, Kids
   
