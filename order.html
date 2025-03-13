@@ -1,0 +1,53 @@
+<!-- order-success.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Success</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>✅ Order Placed Successfully!</h1>
+    </header>
+
+    <main>
+        <h2>📜 Order Summary</h2>
+        <div id="order-details"></div>
+        <button onclick="goHome()">Continue Shopping</button>
+    </main>
+
+    <script>
+        let order = JSON.parse(localStorage.getItem("order"));
+
+        function renderOrderDetails() {
+            let orderContainer = document.getElementById("order-details");
+
+            if (!order) {
+                orderContainer.innerHTML = "<p>No order found.</p>";
+                return;
+            }
+
+            orderContainer.innerHTML = `
+                <p><strong>Name:</strong> ${order.name}</p>
+                <p><strong>Address:</strong> ${order.address}</p>
+                <p><strong>Phone:</strong> ${order.phone}</p>
+                <p><strong>Payment Method:</strong> ${order.paymentMethod.toUpperCase()}</p>
+                <p><strong>Total Amount:</strong> ₹${order.total}</p>
+                <h3>🛍️ Items Ordered:</h3>
+                ${order.cart.map(item => `<p>${item.name} (x${item.quantity})</p>`).join("")}
+            `;
+        }
+
+        function goHome() {
+            localStorage.removeItem("order");
+            window.location.href = "index.html"; // Redirect to home page
+        }
+
+        renderOrderDetails();
+    </script>
+
+</body>
+</html>

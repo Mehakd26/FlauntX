@@ -1,0 +1,151 @@
+/* General Page Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Checkout Container */
+.checkout-container {
+    width: 50%;
+    margin: 40px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styling */
+h1 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 20px 0 10px;
+    display: flex;
+    align-items: center;
+}
+
+.section-title i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+/* Order Summary Section */
+.order-summary {
+    background: #ffffff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-summary p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.order-summary .total {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+/* Shipping Details */
+.shipping-details {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Shipping Form Grid Layout */
+.shipping-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* Full-width field */
+.full-width {
+    grid-column: span 2;
+}
+
+/* Label Styling */
+.shipping-details label {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Input Fields */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f5f5f5;
+}
+
+/* Payment Method Section */
+.payment-method {
+    background: #ffffff;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown Styling */
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background: white;
+}
+
+/* Place Order Button */
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(to right, #FF5733, #FF8C42);
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(to right, #E04D26, #FF6F3C);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .checkout-container {
+        width: 90%;
+    }
+
+    .shipping-form {
+        grid-template-columns: 1fr; /* Stack inputs on small screens */
+    }
+
+    .full-width {
+        grid-column: span 1;
+    }
+}

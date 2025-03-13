@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlauntX - Home</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+   
+
+</head>
+<body>
+    <header>
+        <div class="logo">FlauntX</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="men.html">Men</a></li>
+                <li><a href="women.html">Women</a></li>
+                <li><a href="kids.html">Kids</a></li>
+                
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search FlauntX">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        
+        <div class="nav-icons">
+            <a href="wishlist.html" class="wishlist-link">
+                <i class="fas fa-heart"></i>
+                <span id="wishlist-count">0</span><br>
+                <a href="cart.html" class="cart-link">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span id="cart-count">0</span>
+                </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="banner-slider">
+            <img src="img/banners/banner1.jpg" class="banner" style="opacity: 1;">
+            <img src="img/banners/banner2.jpg" class="banner">
+            <img src="img/banners/banner3.jpg" class="banner">
+            <img src="img/banners/banner4.jpg" class="banner">
+            <img src="img/banners/banner5.jpg" class="banner">
+            <img src="img/banners/banner6.jpg" class="banner">
+        
+            <!-- Navigation Buttons -->
+            <div class="slider-nav">
+                <button id="prevBtn">&#10094;</button>
+                <button id="nextBtn">&#10095;</button>
+            </div>
+        </section>
+
+        <section class="categories">
+            <h2>Shop by Category</h2>
+            <div class="category-list">
+                <a href="men.html?category=men" class="category-item">
+                    <img src="img/men/men-category.jpg" alt="Men">
+                    <div class="category-name">Men</div>
+                </a>
+                <a href="women.html?category=women" class="category-item">
+                    <img src="img/women/women-category.jpg" alt="Women">
+                    <div class="category-name">Women</div>
+                </a>
+                <a href="kids.html?category=kids" class="category-item">
+                    <img src="img/kids/kids-category.jpg" alt="Kids">
+                    <div class="category-name">Kids</div>
+                </a>
+            </div>
+        </section>
+        
+        <section class="trending">
+            <h2>Trending Now</h2>
+            <div class="product-grid">
+                <div class="product" data-id="1" data-name="Stylish Sneakers" data-price="2500">
+                    <img src="img/trending/trend1.jpg" alt="Stylish Sneakers">
+                    <h3>Stylish Sneakers</h3>
+                    <p>₹2500.00</p>
+                    <button class="add-to-cart">Add to Cart</button><br>
+                    <button class="wishlist-btn"><i class="fas fa-heart"></i>Save to wishlist</button>
+                    <a href="product-details.html?id=1" class="view-details">View Details</a>
+                </div>
+    
+                <div class="product" data-id="2" data-name="Classic Leather Jacket" data-price="4500">
+                    <img src="img/trending/trend2.jpg" alt="Classic Leather Jacket">
+                    <h3>Classic Leather Jacket</h3>
+                    <p>₹4500.00</p>
+                    <button class="add-to-cart">Add to Cart</button><br>
+                    <button class="wishlist-btn"><i class="fas fa-heart"></i>Save to wishlist</button>
+                    <a href="product-details.html?id=2" class="view-details">View Details</a>
+                </div>
+    
+                <div class="product" data-id="3" data-name="Premium Watch" data-price="5500">
+                    <img src="img/trending/trend3.jpg" alt="Premium Watch">
+                    <h3>Premium Watch</h3>
+                    <p>₹5500.00</p>
+                    <button class="add-to-cart">Add to Cart</button><br>
+                    <button class="wishlist-btn"><i class="fas fa-heart"></i>Save to wishlist</button>
+                    <a href="product-details.html?id=3" class="view-details">View Details</a>
+                </div>
+    
+                <div class="product" data-id="4" data-name="Trendy Sunglasses" data-price="1800">
+                    <img src="img/trending/trend4.jpg" alt="Trendy Sunglasses">
+                    <h3>Trendy Sunglasses</h3>
+                    <p>₹1800.00</p>
+                    <button class="add-to-cart">Add to Cart</button><br>
+                    <button class="wishlist-btn"><i class="fas fa-heart"></i>Save to wishlist</button>
+                    <a href="product-details.html?id=4" class="view-details">View Details</a>
+                </div>
+    
+                <div class="product" data-id="5" data-name="Modern Handbag" data-price="3200">
+                    <img src="img/trending/trend5.jpg" alt="Modern Handbag">
+                    <h3>Modern Handbag</h3>
+                    <p>₹3200.00</p>
+                    <button class="add-to-cart">Add to Cart</button><br>
+                    <button class="wishlist-btn"><i class="fas fa-heart"></i>Save to wishlist</button>
+                    <a href="product-details.html?id=5" class="view-details">View Details</a>
+                </div>
+    
+                <div class="product" data-id="6" data-name="Stiletto Ankle Boots" data-price="3500">
+                    <img src="img/trending/trend6.jpg" alt="Stiletto Ankle Boots">
+                    <h3>Stiletto Ankle Boots</h3>
+                    <p>₹3500.00</p>
+                    <button class="add-to-cart">Add to Cart</button><br>
+                    <button class="wishlist-btn"><i class="fas fa-heart"></i>Save to wishlist</button>
+                    <a href="product-details.html?id=6" class="view-details">View Details</a>
+                </div>
+
+                <div class="product" data-id="7" data-name="Oversized Hoodie" data-price="1200">
+                    <img src="img/trending/trend7.jpg" alt="Oversized Hoodie">
+                    <h3>Oversized Hoodie</h3>
+                    <p>₹1200.00</p>
+                    <button class="add-to-cart">Add to Cart</button><br>
+                    <button class="wishlist-btn"><i class="fas fa-heart"></i>Save to wishlist</button>
+                    <a href="product-details.html?id=7" class="view-details">View Details</a>
+                </div>
+
+                <div class="product" data-id="8" data-name="Wide Leg Jeans" data-price="1599">
+                    <img src="img/trending/trend8.jpg" alt="Wide Leg Jeans">
+                    <h3>Wide Leg Jeans</h3>
+                    <p>₹1599.00</p>
+                    <button class="add-to-cart">Add to Cart</button><br>
+                    <button class="wishlist-btn"><i class="fas fa-heart"></i>Save to wishlist</button>
+                    <a href="product-details.html?id=8" class="view-details">View Details</a>
+                </div>
+                
+            </div>
+        </section>
+        
+    </main>
+
+    <footer style="background-color: #111; color: #fff; text-align: center; padding: 20px 0; position: relative; bottom: 0; width: 100%;">
+        <div style="max-width: 1200px; margin: auto; padding: 0 20px;">
+            
+            <!-- 🌍 Social Media Links -->
+            <div style="margin-bottom: 15px;">
+                <a href="#" style="color: #fff; margin: 0 10px; font-size: 18px;"><i class="fab fa-facebook"></i></a>
+                <a href="#" style="color: #fff; margin: 0 10px; font-size: 18px;"><i class="fab fa-instagram"></i></a>
+                <a href="#" style="color: #fff; margin: 0 10px; font-size: 18px;"><i class="fab fa-twitter"></i></a>
+                <a href="#" style="color: #fff; margin: 0 10px; font-size: 18px;"><i class="fab fa-linkedin"></i></a>
+            </div>
+    
+            <!-- 🔗 Quick Links -->
+            <div style="margin-bottom: 15px;">
+                <a href="index.html" style="color: #ddd; text-decoration: none; margin: 0 15px; font-size: 14px;">Home</a> |
+                <a href="men.html" style="color: #ddd; text-decoration: none; margin: 0 15px; font-size: 14px;">Men</a> |
+                <a href="women.html" style="color: #ddd; text-decoration: none; margin: 0 15px; font-size: 14px;">Women</a> |
+                <a href="kids.html" style="color: #ddd; text-decoration: none; margin: 0 15px; font-size: 14px;">Kids</a>
+            </div>
+    
+            <!-- 📧 Newsletter Subscription -->
+            <div style="margin-bottom: 15px;">
+                <input type="email" placeholder="Enter your email" style="padding: 8px; width: 250px; border-radius: 4px; border: none;">
+                <button style="padding: 8px 12px; background: #ff5733; color: white; border: none; border-radius: 4px; cursor: pointer;">Subscribe</button>
+            </div>
+    
+            <!-- 🏷️ Copyright -->
+            <p style="font-size: 14px; color: #bbb;">&copy; 2025 FlauntX. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+
+    <script src="js/script.js"></script>
+</body>
+</html>

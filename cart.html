@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+   
+</head>
+<body>
+    <header>
+        <div class="logo">FlauntX</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="men.html">Men</a></li>
+                <li><a href="women.html">Women</a></li>
+                <li><a href="kids.html">Kids</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search FlauntX">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        
+        <div class="nav-icons">
+            <a href="wishlist.html" class="wishlist-link">
+                <i class="fas fa-heart"></i>
+                <span id="wishlist-count">0</span><br>
+                <a href="cart.html" class="cart-link">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span id="cart-count">0</span>
+                </a>
+        </div>
+    </header>
+
+    <div class="cart-container">
+        <h1 style="text-align: center; font-size: 40px; font-weight: 900; color: #222; margin-top: 20px; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 3px; position: relative; display: inline-block; padding-bottom: 15px;">
+            My Cart
+            <span style="position: absolute; left: 50%; bottom: 0; width: 120px; height: 6px; background: linear-gradient(to right, #FF5733, #FF8C42); transform: translateX(-50%); border-radius: 5px;"></span>
+        </h1>
+        
+        <div id="cart-items" class="cart-items">
+            <p class="empty-msg">Your cart is empty.</p>
+        </div>
+
+        <p>Total Price: ₹<span id="total-price">0.00</span></p>
+        <button id="clear-cart-btn" class="clear-cart-btn">Clear Cart</button>
+        <button onclick="goToCheckout()" class="checkout-btn">Proceed to Checkout</button>
+
+    </div>
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+        function renderCart() {
+            let cartContainer = document.getElementById("cart-items");
+            let totalPrice = 0;
+            cartContainer.innerHTML = "";
+    
+            if (cart.length === 0) {
+                cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+                document.getElementById("total-price").innerText = "0.00";
+                return;
+            }
+    
+            cart.forEach((item, index) => {
+                let itemTotal = item.price * item.quantity;
+                totalPrice += itemTotal;
+    
+                cartContainer.innerHTML += `
+                    <div class="cart-item">
+                        <img src="${item.img}" alt="${item.name}" width="50">
+                        <span>${item.name} - ₹${item.price}</span>
+                        <div class="quantity-controls">
+                            <button onclick="updateQuantity(${index}, -1)">➖</button>
+                            <span class="quantity">${item.quantity}</span>
+                            <button onclick="updateQuantity(${index}, 1)">➕</button>
+                        </div>
+                        <span class="item-total">₹${itemTotal}</span>
+                        <button onclick="removeItem(${index})">❌</button>
+                    </div>
+                `;
+            });
+    
+            document.getElementById("total-price").innerText = totalPrice.toFixed(2);
+        }
+    
+        function updateQuantity(index, change) {
+            if (cart[index].quantity + change >= 1) {
+                cart[index].quantity += change;
+                localStorage.setItem("cart", JSON.stringify(cart));
+                renderCart();
+            }
+        }
+    
+        function removeItem(index) {
+            cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            renderCart();
+        }
+    
+        function goToCheckout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+            window.location.href = "checkout.html"; // Redirect to checkout page
+        }
+    
+        function clearCart() {
+            localStorage.removeItem("cart");
+            cart = [];
+            renderCart();
+        }
+    
+        renderCart();
+    </script>
+    <footer style="background-color: #111; color: #fff; text-align: center; padding: 20px 0; position: relative; bottom: 0; width: 100%;">
+        <div style="max-width: 1200px; margin: auto; padding: 0 20px;">
+            
+            <div style="margin-bottom: 15px;">
+                <a href="#" style="color: #fff; margin: 0 10px; font-size: 18px;"><i class="fab fa-facebook"></i></a>
+                <a href="#" style="color: #fff; margin: 0 10px; font-size: 18px;"><i class="fab fa-instagram"></i></a>
+                <a href="#" style="color: #fff; margin: 0 10px; font-size: 18px;"><i class="fab fa-twitter"></i></a>
+                <a href="#" style="color: #fff; margin: 0 10px; font-size: 18px;"><i class="fab fa-linkedin"></i></a>
+            </div>
+    
+            <div style="margin-bottom: 15px;">
+                <a href="index.html" style="color: #ddd; text-decoration: none; margin: 0 15px; font-size: 14px;">Home</a> |
+                <a href="men.html" style="color: #ddd; text-decoration: none; margin: 0 15px; font-size: 14px;">Men</a> |
+                <a href="women.html" style="color: #ddd; text-decoration: none; margin: 0 15px; font-size: 14px;">Women</a> |
+                <a href="kids.html" style="color: #ddd; text-decoration: none; margin: 0 15px; font-size: 14px;">Kids</a>
+            </div>
+             <!-- 📧 Newsletter Subscription -->
+            <div style="margin-bottom: 15px;">
+                <input type="email" placeholder="Enter your email" style="padding: 8px; width: 250px; border-radius: 4px; border: none;">
+                <button style="padding: 8px 12px; background: #ff5733; color: white; border: none; border-radius: 4px; cursor: pointer;">Subscribe</button>
+            </div>
+    
+    
+            <p style="font-size: 14px; color: #bbb;">&copy; 2025 FlauntX. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="js/script.js"></script>
+
+</body>
+</html>

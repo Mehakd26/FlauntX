@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - FlauntX</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">FlauntX</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="men.html">Men</a></li>
+                <li><a href="women.html">Women</a></li>
+                <li><a href="kids.html">Kids</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="checkout-container">
+        <h1>Checkout</h1>
+        
+        <div class="order-summary">
+            <h2><i class="fas fa-shopping-cart"></i> Order Summary</h2>
+            <div id="order-items"></div>
+            <p><strong>Total:</strong> <span id="total-price">₹0.00</span></p>
+        </div>
+
+        <div class="shipping-details">
+            <h2><i class="fas fa-map-marker-alt"></i> Shipping Details</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name">
+            <label for="address">Address:</label>
+            <input type="text" id="address" placeholder="Enter your address">
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" placeholder="Enter your phone number">
+        </div>
+
+        <div class="payment-method">
+            <h2><i class="fas fa-credit-card"></i> Payment Method</h2>
+            <select id="payment">
+                <option value="cod">Cash on Delivery</option>
+                <option value="card">Credit/Debit Card</option>
+                <option value="upi">UPI</option>
+            </select>
+        </div>
+
+        <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
+    </div>
+    
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        function loadOrderSummary() {
+            let orderContainer = document.getElementById("order-items");
+            let totalPrice = 0;
+            orderContainer.innerHTML = "";
+
+            cart.forEach(item => {
+                let itemTotal = item.price * item.quantity;
+                totalPrice += itemTotal;
+
+                orderContainer.innerHTML += `
+                    <p>${item.name} (x${item.quantity}) - ₹${itemTotal}</p>
+                `;
+            });
+            document.getElementById("total-price").innerText = `₹${totalPrice.toFixed(2)}`;
+        }
+
+        function placeOrder() {
+            alert("Your order has been placed successfully!");
+            localStorage.removeItem("cart");
+            window.location.href = "index.html";
+        }
+
+        loadOrderSummary();
+    </script>
+    <footer style="background-color: #111; color: #fff; text-align: center; padding: 20px 0; position: relative; bottom: 0; width: 100%;">
+        <div style="max-width: 1200px; margin: auto; padding: 0 20px;">
+            
+            <!-- 🌍 Social Media Links -->
+            <div style="margin-bottom: 15px;">
+                <a href="#" style="color: #fff; margin: 0 10px; font-size: 18px;"><i class="fab fa-facebook"></i></a>
+                <a href="#" style="color: #fff; margin: 0 10px; font-size: 18px;"><i class="fab fa-instagram"></i></a>
+                <a href="#" style="color: #fff; margin: 0 10px; font-size: 18px;"><i class="fab fa-twitter"></i></a>
+                <a href="#" style="color: #fff; margin: 0 10px; font-size: 18px;"><i class="fab fa-linkedin"></i></a>
+            </div>
+    
+            <!-- 🔗 Quick Links -->
+            <div style="margin-bottom: 15px;">
+                <a href="index.html" style="color: #ddd; text-decoration: none; margin: 0 15px; font-size: 14px;">Home</a> |
+                <a href="men.html" style="color: #ddd; text-decoration: none; margin: 0 15px; font-size: 14px;">Men</a> |
+                <a href="women.html" style="color: #ddd; text-decoration: none; margin: 0 15px; font-size: 14px;">Women</a> |
+                <a href="kids.html" style="color: #ddd; text-decoration: none; margin: 0 15px; font-size: 14px;">Kids</a>
+            </div>
+    
+            <!-- 🏷️ Copyright -->
+            <p style="font-size: 14px; color: #bbb;">&copy; 2025 FlauntX. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+</body>
+</html>
